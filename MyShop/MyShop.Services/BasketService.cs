@@ -35,6 +35,7 @@ namespace MyShop.Services
                 string basketId = cookie.Value;
                 if (!string.IsNullOrEmpty(basketId)) {
                     basket = basketContext.Find(basketId);
+
                 }
                 else
                 {
@@ -59,6 +60,7 @@ namespace MyShop.Services
             Basket basket = new Basket();
             basketContext.Insert(basket);
             basketContext.Commit();
+          
 
             HttpCookie cookie = new HttpCookie(BasketSessionName);
             cookie.Value = basket.Id;
@@ -71,8 +73,9 @@ namespace MyShop.Services
         public void AddToBasket(HttpContextBase httpContext, string productId)
         {
             Basket basket = GetBasket(httpContext, true);
-            BasketItem item = basket.BasketItems.FirstOrDefault(i => i.ProductId == productId);
 
+            BasketItem item = basket.BasketItems.FirstOrDefault(i => i.ProductId == productId);
+            
             if (item == null)
             {
                 item = new BasketItem()
