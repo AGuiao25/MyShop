@@ -300,6 +300,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\ProductImages\" />
+    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
