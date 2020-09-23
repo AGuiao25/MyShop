@@ -50,7 +50,7 @@ namespace MyShop.WebUI.Controllers
             return PartialView(basketSummary);
         }
 
-        public ActionResult CheckOut()
+        public ActionResult Checkout()
         {
             return View();
         }
@@ -66,7 +66,7 @@ namespace MyShop.WebUI.Controllers
             orderService.CreateOrder(order, basketItems);
             basketService.ClearBasket(this.HttpContext);
 
-            return RedirectToAction("Thanyou", new { OrderId = order.Id });
+            return RedirectToAction("ThankYou", new { OrderId = order.Id });
 
         }
 
